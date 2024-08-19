@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelling Bee Results</title>
+</head>
+<body>
+    <h1>Spelling Bee Results</h1>
+    <h2>Final Score: {{ score.right }} correct, {{ score.wrong }} incorrect</h2>
+    <h3>Word List:</h3>
+    <ul>
+        {% for result in results %}
+            <li>
+                {{ result.word }} -
+                {% if result.result == 'correct' %}
+                    <span style="color: green;">Correct</span>
+                {% else %}
+                    <span style="color: red;">Incorrect (you spelled: {{ result.user_spelling }})</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Practice</a>
+</body>
+</html>

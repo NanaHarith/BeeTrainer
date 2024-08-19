@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelling Bee Practice</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Spelling Bee Practice</h1>
+    <input type="file" id="fileInput" accept=".csv,.xls,.xlsx">
+    <button onclick="uploadFile()">Upload</button>
+    <div id="message"></div>
+    <div id="practice" style="display: none;">
+        <h2>Word: <span id="wordIndex"></span> / <span id="totalWords"></span></h2>
+        <input type="text" id="spelling" placeholder="Enter spelling">
+        <button onclick="checkSpelling()">Submit</button>
+        <button onclick="nextWord()">Next Word</button>
+        <button onclick="repeatWord()">Repeat Word</button>
+    </div>
+    <div id="score">
+        <h3>Score:</h3>
+        <p>Correct: <span id="rightScore">0</span></p>
+        <p>Incorrect: <span id="wrongScore">0</span></p>
+    </div>
+    <button onclick="showResults()" id="showResultsBtn" style="display: none;">Show Results</button>
+
+    <audio id="correctSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+
+    <script>
+        function uploadFile() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    $('#message').text(response.message);
+                    if (response.word_count) {
+                        $('#practice').show();
+                        $('#totalWords').text(response.word_count);
+                        $('#showResultsBtn').show();
+                        nextWord();
+                    }
+                }
+            });
+        }
+
+        function nextWord() {
+            $.get('/next_word', function(data) {
+                if (data.word) {
+                    $('#wordIndex').text(data.index);
+                    $('#totalWords').text(data.total);
+                    $('#spelling').val('').focus();
+                    $('#message').text('');  // Clear any previous messages
+                } else {
+                    $('#message').text(data.message);
+                    $('#practice').hide();  // Hide practice area when no more words
+                }
+            });
+        }
+
+        function repeatWord() {
+            $.get('/repeat_word', function(data) {
+                if (data.word) {
+                    // The word is being repeated, no need to update the UI
+                } else {
+                    $('#message').text(data.message);
+                }
+            });
+        }
+
+        function checkSpelling() {
+            var spelling = $('#spelling').val();
+            $.ajax({
+                url: '/check_spelling',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({spelling: spelling}),
+                success: function(response) {
+                    $('#message').text('Your spelling is ' + response.result + '. Correct spelling: ' + response.correct_spelling);
+                    $('#rightScore').text(response.score.right);
+                    $('#wrongScore').text(response.score.wrong);
+                    if (response.result === 'correct') {
+                        document.getElementById('correctSound').play();
+                        nextWord();
+                    }
+                }
+            });
+        }
+
+        function showResults() {
+            window.location.href = '/results';
+        }
+
+        // Add event listener for Enter key
+        document.getElementById('spelling').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                checkSpelling();
+            }
+        });
+    </script>
+</body>
+</html>
