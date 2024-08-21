@@ -3,24 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spelling Bee Results</title>
+    <title>Quiz Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .score {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .score p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Spelling Bee Results</h1>
-    <h2>Final Score: {{ score.right }} correct, {{ score.wrong }} incorrect</h2>
-    <h3>Word List:</h3>
-    <ul>
-        {% for result in results %}
-            <li>
-                {{ result.word }} -
-                {% if result.result == 'correct' %}
-                    <span style="color: green;">Correct</span>
-                {% else %}
-                    <span style="color: red;">Incorrect (you spelled: {{ result.user_spelling }})</span>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="/">Back to Practice</a>
+    <div class="container">
+        <h1>Quiz Results</h1>
+        <div class="score">
+            <p>Total Correct: <strong>{{ total_correct }}</strong></p>
+            <p>Total Incorrect: <strong>{{ total_incorrect }}</strong></p>
+        </div>
+
+        <h2>Correct Words</h2>
+        <ul>
+            {% for word in correct_words %}
+            <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Incorrect Words</h2>
+        <ul>
+            {% for word in incorrect_words %}
+            <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('index') }}" class="back-button">Back to Quiz</a>
+    </div>
 </body>
 </html>

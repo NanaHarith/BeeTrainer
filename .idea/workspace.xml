@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4e5ddbd-5102-4279-b54c-9cb4d2723b12" name="Changes" comment="" />
+    <list default="true" id="d4e5ddbd-5102-4279-b54c-9cb4d2723b12" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/results.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +151,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724252900039</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Removed WorList.CSV from IDE.">
+      <option name="closed" value="true" />
+      <created>1724253347348</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724253347348</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Removed WorList.CSV from IDE.">
+      <option name="closed" value="true" />
+      <created>1724253533028</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724253533028</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,6 +175,7 @@
     <MESSAGE value="First commit. beetrainer" />
     <MESSAGE value="Added Gunicorn to Requirements.txt" />
     <MESSAGE value="Fix bug in Next Word. Keep current word in session." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug in Next Word. Keep current word in session." />
+    <MESSAGE value="Removed WorList.CSV from IDE." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed WorList.CSV from IDE." />
   </component>
 </project>
