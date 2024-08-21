@@ -69,9 +69,11 @@ def index():
 
 @app.route('/next_word', methods=['GET'])
 def next_word():
-    global current_word_index, tts_queue
+    global tts_queue
 
-    current_word_index += 1
+    # Increment and retrieve the current word index from the session
+    session['current_word_index'] = session.get('current_word_index', -1) + 1
+    current_word_index = session['current_word_index']
 
     if current_word_index < len(words):
         word = words[current_word_index]
