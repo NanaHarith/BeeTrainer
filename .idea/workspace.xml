@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4e5ddbd-5102-4279-b54c-9cb4d2723b12" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Bee Trainer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bee Trainer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="d4e5ddbd-5102-4279-b54c-9cb4d2723b12" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,13 +138,22 @@
       <option name="project" value="LOCAL" />
       <updated>1724170833133</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fix bug in Next Word. Keep current word in session.">
+      <option name="closed" value="true" />
+      <created>1724252900039</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724252900039</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First commit. beetrainer" />
     <MESSAGE value="Added Gunicorn to Requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Gunicorn to Requirements.txt" />
+    <MESSAGE value="Fix bug in Next Word. Keep current word in session." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug in Next Word. Keep current word in session." />
   </component>
 </project>
